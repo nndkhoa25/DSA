@@ -28,11 +28,11 @@ void find(Node *root , int u , int v , char c)
         find(root ->left , u , v , c);
     }
 }
-int notla(Node *root)
+int hight(Node *root)
 {
     if(root == NULL) return 0;
-    if(root->left == NULL && root->right == NULL) return 1;
-    return notla(root->left) + notla(root->right);
+    if(root->left == NULL && root->right == NULL) return 0;
+    return max(hight(root->left) +1  , hight(root->right) + 1);
 }
 int main()
 {
@@ -51,5 +51,5 @@ int main()
             find(root , u , v , c);
         }
     }
-    cout << notla(root);
+    cout << hight(root);
 }
